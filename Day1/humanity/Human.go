@@ -13,6 +13,7 @@ type Human struct {
 	Name    string
 	Age     int
 	Country string
+	Ready bool
 }
 
 //NewHumanFromCSV create a Human from CSV
