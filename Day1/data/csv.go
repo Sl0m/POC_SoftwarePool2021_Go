@@ -14,8 +14,10 @@ func ReadFile(path string) ([]string, error) {
 
 func LineToCSV(line string) ([]string, error) {
 	lines := strings.Split(line, ",")
-	if len(lines) == 0 {
-		return nil, fmt.Errorf("error parsing line")
+	for i:= range lines {
+		if len(lines[i]) == 0 {
+			return nil, fmt.Errorf("error parsing line")
+		}
 	}
 	return lines, nil
 }
