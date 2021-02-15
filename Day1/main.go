@@ -8,8 +8,6 @@ import (
 func main() {
 	data.ReadFile("./test.csv")
 	data.LineToCSV("abc,def,ghi")
-	testHuman := []string{"abc", "12", "ghi"}
-	humanity.NewHumanFromCSV(testHuman)
 	humanity.NewHumanFromCsvFile("./test.csv")
 	return
 }
