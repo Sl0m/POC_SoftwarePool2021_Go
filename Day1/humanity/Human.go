@@ -2,7 +2,9 @@ package humanity
 
 import (
 	"SoftwareGoDay1/data"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"strconv"
 )
 
@@ -40,4 +42,17 @@ func NewHumanFromCsvFile(path string) (*[]Human, error) {
 		return nil, fmt.Errorf("error in human creation")
 	}
 	return &humans, nil
+}
+
+func NewHumanFromJsonFile(path string) ([]*Human, error) {
+	dat, err := ioutil.ReadFile(path)
+	var humans []*Human
+	if err != nil {
+		return nil, fmt.Errorf("error parsing line")
+	}
+	json.Unmarshal(dat, &humans)
+	for i := range humans {
+		fmt.Printf("%#v\n", humans[i])
+	}
+	return humans, err
 }
