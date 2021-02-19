@@ -1,0 +1,31 @@
+body {
+    background-color: #ae00ff52;
+}
+
+.message {
+    background-color: #313131e8;
+    flex-direction: row;
+}
+
+.messageText {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;
+    padding-left: 76px;
+    color: cornsilk;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    left: auto;
+}
+
+.pseudo {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.375rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    display: inline;
+    color:cornsilk;
+}
