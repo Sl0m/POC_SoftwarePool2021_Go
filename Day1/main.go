@@ -2,7 +2,6 @@ package main
 
 import (
 	"SoftwareGoDay1/humanity"
-	"fmt"
 )
 
 func main() {
@@ -10,7 +9,26 @@ func main() {
 	//	data.LineToCSV("abc,def,ghi")
 	//	humanity.NewHumanFromCsvFile("./test.csv")
 	//	humanity.NewHumanFromJsonFile("./medium.json")
-	fmt.Println(&humanity.Pilot{&humanity.Human{"Jason", 10, "Fr", true}})
-	humanity.Preparer.Prepare(&humanity.Pilot{&humanity.Human{"Jason", 10, "Fr", false}})
-	humanity.Preparer.Prepare(&humanity.Pilot{&humanity.Human{"Jason", 10, "Fr", true}})
+	pilotList := []humanity.Preparer{
+		&humanity.Pilot{
+			Human: &humanity.Human{
+				Name:    "Jason",
+				Age:     25,
+				Country: "USA",
+				Ready:   false,
+			},
+		},
+		&humanity.Pilot{
+			Human: &humanity.Human{
+				Name:    "Jean-René",
+				Age:     77,
+				Country: "France",
+				Ready:   false,
+			},
+		},
+	}
+	humanity.PrepareMissionPart(pilotList[0])
+	humanity.PrepareMissionPart(pilotList[0])
+	humanity.PrepareMissionPart(pilotList[1])
+	humanity.PrepareMissionPart(pilotList[1])
 }

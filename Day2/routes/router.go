@@ -2,13 +2,9 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"io/ioutil"
 	"net/http"
 )
-
-type User struct {
-	Email string
-	Password string
-}
 
 func health(c *gin.Context) {
 	c.JSON(200, gin.H{"message": "OK"})
@@ -33,9 +29,8 @@ func repeatMyParam(c *gin.Context) {
 }
 
 func repeatMyBody(c *gin.Context) {
-	var user User
-	c.BindJSON(&user)
-	c.JSON(200, gin.H{"email": user.Email, "password": user.Password})
+	body, _ := ioutil.ReadAll(c.Request.Body)
+	c.JSON(200, gin.H{"message": body})
 }
 
 func repeatMyHeader(c *gin.Context) {
